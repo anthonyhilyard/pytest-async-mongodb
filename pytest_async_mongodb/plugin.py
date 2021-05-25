@@ -65,7 +65,7 @@ class AsyncCursor(Cursor):
 
 	async def __anext__(self):
 		try:
-			return next(self.iter)
+			return next(self)
 		except StopIteration:
 			raise StopAsyncIteration
 
