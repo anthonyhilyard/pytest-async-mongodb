@@ -6,6 +6,7 @@ import codecs
 import types
 
 import mongomock
+from mongomock.collection import Cursor
 import pytest
 import yaml
 from bson import json_util
@@ -58,7 +59,7 @@ class AsyncClassMethod(object):
 			attr = wrapper(attr)
 		return attr
 
-class AsyncCursor(mongomock.Cursor):
+class AsyncCursor(Cursor):
 	def __aiter__(self):
 		return self
 
