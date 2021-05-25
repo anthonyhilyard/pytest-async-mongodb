@@ -135,7 +135,7 @@ class AsyncCollection(AsyncClassMethod, mongomock.Collection):
 
 		cursor = self.find(filter, *args, **kwargs)
 		try:
-			return next(cursor)
+			return await next(cursor)
 		except StopIteration:
 			return None
 
