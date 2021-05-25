@@ -72,7 +72,6 @@ class AsyncCursor(Cursor):
 class AsyncCollection(AsyncClassMethod, mongomock.Collection):
 
 	ASYNC_METHODS = [
-		"find_one",
 		"find_one_and_delete",
 		"find_one_and_replace",
 		"find_one_and_update",
@@ -135,7 +134,7 @@ class AsyncCollection(AsyncClassMethod, mongomock.Collection):
 
 		cursor = self.find(filter, *args, **kwargs)
 		try:
-			return await next(cursor)
+			return next(cursor)
 		except StopIteration:
 			return None
 
